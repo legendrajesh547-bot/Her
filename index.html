@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Cutie ✨</title>
+<!-- Google Fonts for a romantic, elegant look -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary: #ff5e7e;
+--secondary: #ff8fa3;
+--bg-gradient: linear-gradient(135deg, #fff0f3 0%, #ffe3e8 50%, #ffd1dc 100%);
+--glass-bg: rgba(255, 255, 255, 0.78);
+--text-dark: #4a2531;
+--text-muted: #7a4958;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Poppins', sans-serif;
+background: var(--bg-gradient);
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+color: var(--text-dark);
+position: relative;
+}
+
+/* Floating Background Elements */
+.bg-elements {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+pointer-events: none;
+z-index: 0;
+overflow: hidden;
+}
+
+.floating-item {
+position: absolute;
+bottom: -50px;
+opacity: 0.6;
+animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+0% {
+transform: translateY(0) rotate(0deg) scale(0.8);
+opacity: 0;
+}
+20% {
+opacity: 0.7;
+}
+80% {
+opacity: 0.7;
+}
+100% {
+transform: translateY(-110vh) rotate(360deg) scale(1.2);
+opacity: 0;
+}
+}
+
+/* Main Glassmorphic Card Container */
+.card-container {
+position: relative;
+z-index: 10;
+width: 90%;
+max-width: 480px;
+min-height: 520px;
+background: var(--glass-bg);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border: 2px solid rgba(255, 255, 255, 0.8);
+border-radius: 30px;
+box-shadow: 0 20px 50px rgba(255, 94, 126, 0.18);
+padding: 40px 30px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+text-align: center;
+transition: transform 0.3s ease;
+}
+
+/* Progress Dots */
+.progress-bar {
+display: flex;
+justify-content: center;
+gap: 8px;
+margin-bottom: 20px;
+}
+
+.dot {
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background: #ffd1dc;
+transition: all 0.4s ease;
+}
+
+.dot.active {
+width: 28px;
+border-radius: 10px;
+background: var(--primary);
+}
+
+/* Pages */
+.page {
+display: none;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+flex-grow: 1;
+animation: fadeInScale 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.page.active {
+display: flex;
+}
+
+@keyframes fadeInScale {
+0% {
+opacity: 0;
+transform: translateY(15px) scale(0.96);
+}
+100% {
+opacity: 1;
+transform: translateY(0) scale(1);
+}
+}
+
+/* Cute Animated Character / Icons */
+.cute-icon {
+font-size: 64px;
+margin-bottom: 18px;
+display: inline-block;
+animation: gentleBounce 2.5s ease-in-out infinite;
+filter: drop-shadow(0 8px 12px rgba(255, 94, 126, 0.25));
+}
+
+@keyframes gentleBounce {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-10px); }
+}
+
+h1 {
+font-family: 'Dancing Script', cursive;
+font-size: 2.5rem;
+color: var(--primary);
+margin-bottom: 14px;
+line-height: 1.2;
+}
+
+p {
+font-size: 1rem;
+line-height: 1.7;
+color: var(--text-muted);
+margin-bottom: 20px;
+font-weight: 400;
+}
+
+.highlight {
+color: var(--primary);
+font-weight: 600;
+}
+
+.signature {
+font-family: 'Dancing Script', cursive;
+font-size: 1.9rem;
+color: var(--primary);
+margin-top: 15px;
+font-weight: 700;
+letter-spacing: 0.5px;
+}
+
+/* Buttons */
+.btn-group {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 15px;
+margin-top: 10px;
+width: 100%;
+position: relative;
+}
+
+.btn {
+background: linear-gradient(135deg, var(--primary), #ff758f);
+color: white;
+border: none;
+padding: 13px 30px;
+border-radius: 50px;
+font-family: 'Poppins', sans-serif;
+font-size: 0.95rem;
+font-weight: 500;
+cursor: pointer;
+box-shadow: 0 8px 20px rgba(255, 94, 126, 0.3);
+transition: all 0.3s ease;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+}
+
+.btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 12px 25px rgba(255, 94, 126, 0.45);
+}
+
+.btn:active {
+transform: translateY(1px);
+}
+
+.btn-secondary {
+background: white;
+color: var(--text-muted);
+border: 1.5px solid #ffd1dc;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.btn-secondary:hover {
+background: #fff5f7;
+box-shadow: 0 6px 15px rgba(255, 94, 126, 0.15);
+}
+
+/* Celebration Overlay */
+#celebration-msg {
+display: none;
+margin-top: 15px;
+padding: 15px;
+background: rgba(255, 255, 255, 0.9);
+border-radius: 20px;
+border: 1px dashed var(--primary);
+animation: fadeInScale 0.5s ease forwards;
+}
+</style>
+</head>
+<body>
+
+<!-- Floating Hearts & Sparkles Background -->
+<div class="bg-elements" id="bg-elements"></div>
+
+<!-- Main Card -->
+<div class="card-container">
+<!-- Progress Indicator -->
+<div class="progress-bar">
+<div class="dot active" id="dot-0"></div>
+<div class="dot" id="dot-1"></div>
+<div class="dot" id="dot-2"></div>
+<div class="dot" id="dot-3"></div>
+</div>
+
+<!-- PAGE 1: Warm Opening -->
+<div class="page active" id="page-0">
+<div class="cute-icon">💌</div>
+<h1>Hey My Cutie...</h1>
+<p>
+Before anything else, I just want you to pause for a moment and remember how deeply you mean to me. You are the brightest part of my every single day, and my favorite place in the world is right beside you.
+</p>
+<div class="btn-group">
+<button class="btn" onclick="nextPage(1)">Read More ✨</button>
+</div>
+</div>
+
+<!-- PAGE 2: Appreciation & Love -->
+<div class="page" id="page-1">
+<div class="cute-icon">🌷</div>
+<h1>You Mean Everything</h1>
+<p>
+Your smile heals my worst days, and your happiness is the only thing I ever want to protect. Seeing you upset or hurt because of me is the hardest feeling in the world, because <span class="highlight">you deserve nothing less than endless love and patience.</span>
+</p>
+<div class="btn-group">
+<button class="btn" onclick="nextPage(2)">Next Page 💖</button>
+</div>
+</div>
+
+<!-- PAGE 3: Sincere Apology (Second-to-last page) -->
+<div class="page" id="page-2">
+<div class="cute-icon">🥺</div>
+<h1>I Am So Sorry...</h1>
+<p>
+I know I messed up, and I take full responsibility for hurting your feelings. There is no excuse for making my favorite person feel anything less than cherished. Please forgive me for my mistake—I promise to listen better, love harder, and never let you down like that again.
+</p>
+<div class="btn-group">
+<button class="btn" onclick="nextPage(3)">One Last Thing 🤍</button>
+</div>
+</div>
+
+<!-- PAGE 4: Final Apology & Signature (Last page) -->
+<div class="page" id="page-3">
+<div class="cute-icon" id="final-icon">🧸</div>
+<h1>Please Forgive Me?</h1>
+<p>
+I truly, deeply apologize with all my heart. Let me make it up to you and bring that gorgeous smile back onto your face. I love you endlessly, my Mrs.
+</p>
+
+<div class="signature">From your Mr... ✨</div>
+
+<div class="btn-group" id="choice-buttons" style="margin-top: 22px;">
+<button class="btn" onclick="forgiveMe()">Yes, I forgive you ❤️</button>
+<button class="btn btn-secondary" id="no-btn" onmouseover="dodgeButton()" onclick="dodgeButton()">Still mad 😤</button>
+</div>
+
+<div id="celebration-msg">
+<p style="margin-bottom: 5px; color: var(--primary); font-weight: 600;">Yay!! Thank you, my love! 🥰💖</p>
+<p style="margin-bottom: 0; font-size: 0.9rem;">I promise to make you smile today and always!</p>
+</div>
+</div>
+</div>
+
+<script>
+// Create floating hearts, sparkles, and petals
+const bgContainer = document.getElementById('bg-elements');
+const symbols = ['💖', '✨', '🌸', '🤍', '🌷', '💫'];
+
+function createFloatingElement() {
+const el = document.createElement('div');
+el.classList.add('floating-item');
+el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+
+el.style.left = Math.random() * 100 + 'vw';
+el.style.fontSize = (Math.random() * 16 + 14) + 'px';
+el.style.animationDuration = (Math.random() * 6 + 6) + 's';
+
+bgContainer.appendChild(el);
+
+setTimeout(() => {
+el.remove();
+}, 12000);
+}
+
+// Spawn ambient floating icons regularly
+setInterval(createFloatingElement, 650);
+for(let i = 0; i < 10; i++) createFloatingElement();
+
+// Page Navigation
+function nextPage(pageIndex) {
+document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+
+document.getElementById(page-${pageIndex}).classList.add('active'); document.getElementById(dot-${pageIndex}).classList.add('active');
+}
+
+// Playful dodging "Still mad" button
+function dodgeButton() {
+const noBtn = document.getElementById('no-btn');
+const x = (Math.random() - 0.5) * 180;
+const y = (Math.random() - 0.5) * 120;
+noBtn.style.transform = translate(${x}px, ${y}px);
+}
+
+// Celebration when she clicks "Yes"
+function forgiveMe() {
+document.getElementById('choice-buttons').style.display = 'none';
+document.getElementById('celebration-msg').style.display = 'block';
+document.getElementById('final-icon').innerText = '🥰';
+
+// Burst of hearts
+for (let i = 0; i < 35; i++) {
+setTimeout(createFloatingElement, i * 60);
+}
+}
+</script>
+</body>
+</html>
